@@ -14,7 +14,7 @@ const app = props => {
   const changeHobbyHandler = () => {
     // console.log('was clicked');
     // this.state.persons[0].name="Faye Sipiano"
-    this.setState({
+    humanState({
       humans: [
         { name: "Faye Sipiano", age: 27 },
         { name: "Giovanni", age: 29 },
