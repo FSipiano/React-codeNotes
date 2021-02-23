@@ -10,6 +10,7 @@ const app = props => {
       { name: "Rosie", age: 6 },
     ],
   });
+}
 
   const changeNameHandler = () => {
     // console.log('was clicked');
@@ -32,29 +33,33 @@ const app = props => {
       ],
     });
   }
-  render() {
+
+  render () {
+
     return (
       <div className="App">
         <h1>Hi, this is my React app</h1>
         <button onClick={changeNameHandler}>Change name</button>
-        <Human name={humanState.humans[0].name} age={humanState.humans[0].age}>
-          My hobbies: Horse riding
+        <Human name={humanState.humans[0].name}
+          age={humanState.humans[0].age}>
         </Human>
         <Human
           name={this.state.humans[1].name}
           age={humanState.humans[1].age}
           click={this.changeNameHandler}
+          changed ={this.nameChangeHandler}
         ></Human>
         <Human
-          name={humanState.humans[2].name}
-          age={humanState.humans[2].age}
+          name={this.state.humans[2].name}
+          age={this.state.humans[2].age}
         ></Human>
       </div>
     );
     //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'))
 
-  };
-}
+};
+
+
 
 
 export default app;
