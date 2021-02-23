@@ -3,7 +3,7 @@ import './App.css';
 import Human from './Human/Human'
 
 const app = props => {
-  const [ humanState, setHumanState ] = useState({
+  const [humanState, setHumanState] = useState({
     humans: [
       { name: "Faye", age: 27 },
       { name: "Giovanni", age: 29 },
@@ -11,7 +11,7 @@ const app = props => {
     ],
   });
 
-  const changeHobbyHandler = () => {
+  const changeNameHandler = () => {
     // console.log('was clicked');
     // this.state.persons[0].name="Faye Sipiano"
     this.setState({
@@ -23,16 +23,27 @@ const app = props => {
     });
   }
 
+  nameChangeHandler = (event) => {
+    this.setState({
+      humans: [
+        { name: event.target.value, age: 27 },
+        { name: "Giovanni", age: 29 },
+        { name: "Rosie", age: 6 },
+      ],
+    });
+  }
+  render() {
     return (
       <div className="App">
         <h1>Hi, this is my React app</h1>
-        <button onClick={changeHobbyHandler}>Switch hobby</button>
+        <button onClick={changeNameHandler}>Change name</button>
         <Human name={humanState.humans[0].name} age={humanState.humans[0].age}>
           My hobbies: Horse riding
         </Human>
         <Human
-          name={humanState.humans[1].name}
+          name={this.state.humans[1].name}
           age={humanState.humans[1].age}
+          click={this.changeNameHandler}
         ></Human>
         <Human
           name={humanState.humans[2].name}
@@ -42,6 +53,7 @@ const app = props => {
     );
     //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'))
 
+  };
 }
 
 
@@ -49,23 +61,4 @@ export default app;
 
 
 
-// state = {
-    // humans: [
-    //   { name: 'Faye', age: 27 },
-    //   { name: 'Giovanni', age: 29 },
-    //   { name: 'Rosie', age: 6 }
-    // ]
 
-//   }
-
-  // changeHobbyHandler = () => {
-  //   // console.log('was clicked');
-  // // this.state.persons[0].name="Faye Sipiano"
-  //   this.setState({
-  //     humans: [
-  //       { name: "Faye Sipiano", age: 27 },
-  //       { name: "Giovanni", age: 29 },
-  //       { name: "Rosie", age: 6 },
-  //     ],
-//     });
-//   }
